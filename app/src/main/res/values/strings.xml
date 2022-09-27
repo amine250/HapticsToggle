@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Haptics Toggle</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Haptics Toggle</string>
+
+    <string name="hello_first_fragment">You can find your new Haptics Toggle tile in the Quick Settings !</string>
+    <string name="tile_label">Toggle Haptics</string>
+    <string name="request_perm">Request Permission</string>
+    <string name="why_need_perm">This app needs the permission \'android.permission.WRITE_SETTINGS\' to be able to toggle Haptics settings. Please click the button below and allow it in the next screen.</string>
+    <string name="toggle_haptics">Toggle Haptics</string>
+
+</resources>

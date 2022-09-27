@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <TextView
+        android:id="@+id/why_need_perm"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/why_need_perm"
+        app:layout_constraintBottom_toBottomOf="@id/req_perm_but"
+        app:layout_constraintEnd_toEndOf="@id/req_perm_but"
+        app:layout_constraintStart_toStartOf="@id/req_perm_but"
+        app:layout_constraintTop_toTopOf="parent" >
+    </TextView>
+
+    <Button
+        android:id="@+id/req_perm_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/request_perm"
+        android:onClick="requestPermission" />
+
+    <TextView
+        android:id="@+id/textview_first"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_first_fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/req_perm_but" >
+    </TextView>
+
+    <Button
+        android:id="@+id/tog_hap_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textview_first"
+        android:text="@string/toggle_haptics"
+        android:onClick="toggleHaptics" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
