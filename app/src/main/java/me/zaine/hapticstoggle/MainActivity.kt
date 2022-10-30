@@ -1,8 +1,6 @@
 package me.zaine.hapticstoggle
 
 import android.os.Bundle
-import android.os.VibrationAttributes
-import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -43,8 +41,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -60,11 +56,8 @@ class MainActivity : AppCompatActivity() {
 
     fun toggleHaptics(view: View){
         when (HapticsController.toggleHapticsState()) {
-            -1 -> Toast.makeText(applicationContext, "Root access is needed!", Toast.LENGTH_SHORT).show()
-            0 -> Toast.makeText(applicationContext, "Haptics are off!", Toast.LENGTH_SHORT).show()
-            1 -> Toast.makeText(applicationContext, "Haptics are on!", Toast.LENGTH_SHORT).show()
+            false -> Toast.makeText(applicationContext, "Haptics are off!", Toast.LENGTH_SHORT).show()
+            true -> Toast.makeText(applicationContext, "Haptics are on!", Toast.LENGTH_SHORT).show()
         }
-
     }
-
 }

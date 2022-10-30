@@ -1,10 +1,13 @@
 package me.zaine.hapticstoggle
 
+import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import me.zaine.hapticstoggle.HapticsController.Companion.getHapticsState
 
 class MyQSTileService : TileService() {
 
+    data class StateModel(val enabled: Boolean, val label: String, val icon: Icon)
     // Called when the user adds your tile.
     override fun onTileAdded() {
         super.onTileAdded()
@@ -12,22 +15,24 @@ class MyQSTileService : TileService() {
     // Called when your app can update your tile.
     override fun onStartListening() {
         super.onStartListening()
-        val tile:Tile = getQsTile();
-        tile.updateTile()
+        val state = getHapticsState()
+        qsTile.state = if (state) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
+        qsTile.updateTile()
     }
 
     // Called when your app can no longer update your tile.
     override fun onStopListening() {
         super.onStopListening()
-        val tile:Tile = getQsTile();
+        val tile:Tile = qsTile;
 
     }
 
     // Called when the user taps on your tile in an active or inactive state.
     override fun onClick() {
         super.onClick()
-        val tile:Tile = getQsTile();
-        HapticsController.toggleHapticsState()
+        val tile:Tile = qsTile;
+        val state = HapticsController.toggleHapticsState()
+        qsTile.state = if (state) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
         tile.updateTile()
 
     }
